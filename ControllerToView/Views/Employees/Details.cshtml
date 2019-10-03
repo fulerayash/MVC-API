@@ -1,0 +1,67 @@
+﻿@model IEnumerable<ControllerToView.Models.EmployeeData>
+
+@*@model dynamic*@
+
+@{
+    ViewBag.Title = "Company Details";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<h4>
+    @ViewData["CompanyName"] @ViewBag.Branch
+</h4>
+<h4>
+    @TempData["Functionality"]
+</h4>
+<h4>
+    Location : @ViewBag.Location
+</h4>
+
+
+
+
+
+
+<p>
+    @Html.ActionLink("Create New", "AddEmployee")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmployeeID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Functionality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Grade)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmployeeID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Functionality)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Grade)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditEmployee", new {  id=item.EmployeeID }) | 
+            @Html.ActionLink("Delete", "DeleteEmployee", new { id= item.EmployeeID })
+        </td>
+    </tr>
+}
+
+</table>

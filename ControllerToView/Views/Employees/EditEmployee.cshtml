@@ -1,0 +1,61 @@
+﻿@model ControllerToView.Models.EmployeeData
+
+@{
+    ViewBag.Title = "EditEmployee";
+}
+
+<h2>EditEmployee</h2>
+
+<div style="font-family: Arial">
+    <div>
+        @Html.ActionLink("Back", "Details")
+    </div>
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary(true)
+        <fieldset>
+            <legend>Employee</legend>
+            @Html.HiddenFor(model => model.EmployeeID)
+            
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Name)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name)
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Functionality)
+            </div>
+            <div class="editor-field">
+                @Html.DropDownList("Functionality", new List<SelectListItem>
+               {
+                   new SelectListItem
+                   {
+                       Text = "Delivery", Value= "Delivery"
+                   },
+                   new SelectListItem
+                   {
+                       Text = "Leadership", Value= "Leadership"
+                   },
+                   new SelectListItem
+                   {
+                       Text = "Quality Assurance", Value= "QA"
+                   }
+               }, "Select Function")
+            </div>
+
+            <div class="editor-label">
+                @Html.LabelFor(model=> model.Grade)
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(model=> model.Grade)
+            </div>
+            
+            <p>
+                <input type="submit" value="Save"/>
+            </p>
+        </fieldset>
+    }
+</div>

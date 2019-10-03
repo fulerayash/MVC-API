@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FuleraDBModelStoreContainer" CdmEntityContainer="FuleraDBEntities">
+    <EntitySetMapping Name="EmployeeDatas">
+      <EntityTypeMapping TypeName="FuleraDBModel.EmployeeData">
+        <MappingFragment StoreEntitySet="EmployeeData">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="Functionality" ColumnName="Functionality" />
+          <ScalarProperty Name="Grade" ColumnName="Grade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
